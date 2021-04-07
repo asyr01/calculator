@@ -80,6 +80,14 @@ button:hover {
   filter: brightness(110%);
 }
 
+button:active {
+  transform: translateY(-1px);
+}
+
+button:focus {
+  outline: none;
+}
+
 .operator {
   background-color: rgb(80, 80, 228);
   color: #fff;
@@ -99,4 +107,10 @@ button:hover {
   grid-column: -2;
   grid-row: 2 / span 4;
   background: rgb(13, 206, 87);
+}
+
+@media screen and (max-width: 600px) {
+  .calculator {
+    width: 90%;
+  }
 }
