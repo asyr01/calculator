@@ -18,6 +18,14 @@ inputBtns.forEach((inputBtn) => {
   } else if (inputBtn.classList.contains('operator')) {
     inputBtn.addEventListener('click', () => sendNumberValue(inputBtn.value));
   } else if (inputBtn.classList.contains('decimal')) {
-    inputBtn.addEventListener('click', () => sendNumberValue());
+    inputBtn.addEventListener('click', () => sendNumberValue(inputBtn.value));
   }
 });
+
+// Reset display
+function resetAll() {
+  calculatorDisplay.textContent = '0';
+}
+
+// Event Listener
+clearBtn.addEventListener('click', resetAll);
