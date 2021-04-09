@@ -20,6 +20,8 @@ function sendNumberValue(number) {
 }
 
 function addDecimal() {
+  // if operator pressed
+  if (awaitingNextValue) return;
   // if no decimal, add one.
   if (!calculatorDisplay.textContent.includes('.')) {
     calculatorDisplay.textContent = `${calculatorDisplay.textContent}.`;
@@ -35,8 +37,8 @@ function useOperator(operator) {
     console.log('currentValue', currentValue);
   }
   // Ready for next value, store operator.
+  awaitingNextValue = true;
   operatorValue = operator;
-
   console.log('firstValue', firstValue);
   console.log('operator', operator);
 }
