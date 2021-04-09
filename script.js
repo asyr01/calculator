@@ -28,6 +28,15 @@ function addDecimal() {
   }
 }
 
+// Calculations depending on operator
+const calculate = {
+  '/': (firstNumber, secondNumber) => firstNumber / secondNumber,
+  '*': (firstNumber, secondNumber) => firstNumber * secondNumber,
+  '+': (firstNumber, secondNumber) => firstNumber + secondNumber,
+  '-': (firstNumber, secondNumber) => firstNumber - secondNumber,
+  '=': (secondNumber) => secondNumber,
+};
+
 function useOperator(operator) {
   const currentValue = Number(calculatorDisplay.textContent);
   // Prevent multiple operators
@@ -37,6 +46,8 @@ function useOperator(operator) {
     firstValue = currentValue;
   } else {
     console.log(firstValue, operatorValue, currentValue);
+    const calculation = calculate[operatorValue](firstValue, currentValue);
+    console.log('calculation', calculation);
   }
   // Ready for next value, store operator.
   awaitingNextValue = true;
