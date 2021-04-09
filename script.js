@@ -30,17 +30,17 @@ function addDecimal() {
 
 function useOperator(operator) {
   const currentValue = Number(calculatorDisplay.textContent);
+  // Prevent multiple operators
+  if (operatorValue && awaitingNextValue) return;
   // Assign first vallue if there is no value.
   if (!firstValue) {
     firstValue = currentValue;
   } else {
-    console.log('currentValue', currentValue);
+    console.log(firstValue, operatorValue, currentValue);
   }
   // Ready for next value, store operator.
   awaitingNextValue = true;
   operatorValue = operator;
-  console.log('firstValue', firstValue);
-  console.log('operator', operator);
 }
 
 // Add Event Listeners for numbers, operators, decimal buttons.
