@@ -20,6 +20,17 @@ function addDecimal() {
   }
 }
 
+function useOperator(operator) {
+  const currentValue = Number(calculatorDisplay.textContent);
+  // Assign first vallue if there is no value.
+  if (!firstValue) {
+    firstValue = currentValue;
+  }
+  operatorValue = operator;
+  console.log('firstValue', firstValue);
+  console.log('operator', operator);
+}
+
 // Add Event Listeners for numbers, operators, decimal buttons.
 
 inputBtns.forEach((inputBtn) => {
@@ -27,7 +38,7 @@ inputBtns.forEach((inputBtn) => {
   if (inputBtn.classList.length === 0) {
     inputBtn.addEventListener('click', () => sendNumberValue(inputBtn.value));
   } else if (inputBtn.classList.contains('operator')) {
-    inputBtn.addEventListener('click', () => sendNumberValue(inputBtn.value));
+    inputBtn.addEventListener('click', () => useOperator(inputBtn.value));
   } else if (inputBtn.classList.contains('decimal')) {
     inputBtn.addEventListener('click', () => addDecimal());
   }
